@@ -7,9 +7,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @if($title)
-    <title>{{ $title }} - Water System</title>
-    @endif
     <title>Water System</title>
 
     <!-- Styles -->
