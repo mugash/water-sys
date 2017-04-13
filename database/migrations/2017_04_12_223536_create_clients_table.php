@@ -17,7 +17,7 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->unsignedInteger('phone_number');
+            $table->string('phone_number');
             $table->unsignedInteger('plot_number');
             $table->string('address');
             $table->unsignedInteger('meter_number');
