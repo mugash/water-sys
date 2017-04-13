@@ -25,6 +25,8 @@ Route::get('/clients/add', 'ClientsController@create')->name('client_create');
 
 Route::post('/clients/add', 'ClientsController@store')->name('client_store');
 
+Route::get('/clients/{client}', 'ClientsController@client')->name('client');
+
 Route::post('/clients/{client}', 'ClientController@update');
 
 Route::delete('/clients/{client}', 'ClientController@destroy');

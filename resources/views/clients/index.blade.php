@@ -12,6 +12,7 @@
                         <h1 class="text-center">Here are all the clients</h1>
                         <table class="table table-condensed">
                             <tr>
+                                <th>#</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>phone Number</th>
@@ -21,7 +22,8 @@
                             </tr>
                             @foreach($clients as $client)
                             <tr>
-                                    <td>{{ $client->first_name }}</td>
+                                    <td><a href="{{ route('client', ['client' => $client->id]) }}"> {{ $client->id }}</a></td>
+                                    <td>{{$client->first_name }}</td>
                                     <td>{{$client->last_name }}</td>
                                     <td>{{ $client->phone_number }}</td>
                                     <td>{{ $client->plot_number }}</td>

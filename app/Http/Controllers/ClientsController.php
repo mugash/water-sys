@@ -28,6 +28,16 @@ class ClientsController extends Controller
         return view('clients.index', ['clients' => $clients, 'title' => 'List Clients']);
     }
     /**
+    Display details for a certain client
+     *
+     @param Request $request
+     @return Response
+     */
+    public function client(Client $client)
+    {
+        return view('clients.client', ['client' => $client]);
+    }
+    /**
     Display the form to add a new client
      * @param Request $request
      * @return Response
