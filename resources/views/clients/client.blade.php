@@ -14,8 +14,8 @@
                         <p><b>Plot Number:</b> {{$client->plot_number}}</p>
                         <p><b>Address:</b> {{$client->address}}</p>
                         <p><b>Meter Number:</b> {{$client->meter_number}}</p>
-                        <a href="#">Edit Member</a>
-                        <a href="#">Delete Member</a>
+                        <a href="{{ route('edit', ['client' => $client->id]) }}">Edit Member</a>
+                        <a href="{{ route('destroy', ['client' => $client->id]) }}">Delete Member</a>
                     </div>
                 </div>
             </div>

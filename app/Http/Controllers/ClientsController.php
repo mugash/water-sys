@@ -23,8 +23,9 @@ class ClientsController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = Client::orderBy('id', 'desc')
-                           ->get();
+        $clients = Client::where('active', 1)
+            ->orderBy('id', 'desc')
+            ->get();
         return view('clients.index', ['clients' => $clients, 'title' => 'List Clients']);
     }
     /**
@@ -71,6 +72,53 @@ class ClientsController extends Controller
             'address' => $request['address'],
             'meter_number' => $request['meter_number']
         ]);
+        return redirect('clients');
+    }
+    /**
+    Display the update form with values already
+     *
+     *@params Client $client
+     @return Response
+     */
+    public function update(Client $client)
+    {
+        return view('clients.update', ['client' => $client]);
+    }
+    /**
+    *Save Updated client
+     *@param Request $request
+     *@return Response
+     */
+    public function save_client(Request $request)
+    {
+        $this->validate($request, [
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'phone_number' => 'required',
+            'plot_number' => 'required',
+            'address' => 'required',
+            'meter_number' => 'required'
+        ]);
+        $client = Client::find($request['id']);
+        $client->first_name = $request['first_name'];
+        $client->last_name = $request['last_name'];
+        $client->phone_number = $request['phone_number'];
+        $client->plot_number = $request['plot_number'];
+        $client->address = $request['address'];
+        $client->meter_number = $request['meter_number'];
+        $client->save();
+        return redirect('clients/'. $client->id);
+    }
+    /**
+    *Mark status active to false after the user is deleted
+     *@param Client $client
+     *@return redirect()
+     */
+    public function destroy(Client $client)
+    {
+        $selected_client = $client;
+        $selected_client->active = false;
+        $selected_client->save();
         return redirect('clients');
     }
 }

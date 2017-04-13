@@ -21,6 +21,7 @@ class CreateClientsTable extends Migration
             $table->unsignedInteger('plot_number');
             $table->string('address');
             $table->unsignedInteger('meter_number');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
