@@ -111,7 +111,7 @@
                                         <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                                 @endif
-                                <select class="form-control" name="type">
+                                <select class="form-control" name="type" id="type">
                                     <option value="" disabled selected>Select type</option>
                                     <option value="admin">Admin</option>
                                     <option value="agent">Agent</option>
