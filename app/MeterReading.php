@@ -19,4 +19,5 @@ class MeterReading extends Model
         return $this->belongsTo('App\Client');
     }
 
+
 }

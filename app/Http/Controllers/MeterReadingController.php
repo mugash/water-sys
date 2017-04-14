@@ -25,4 +25,13 @@ class MeterReadingController extends Controller
         $meter_readings = MeterReading::all();
         return view('meteter_readings.index', ['meter_readings' => $meter_readings]);
     }
+    /**
+     *return details for a certain meter reading
+     * @param MeterReading $reading
+     * @return View
+     */
+    public function reading(MeterReading $reading)
+    {
+        return view('meteter_readings.reading',['reading' => $reading]);
+    }
 }

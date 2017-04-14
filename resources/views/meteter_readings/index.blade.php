@@ -17,7 +17,7 @@
                             </tr>
                             @foreach($meter_readings as $reading)
                                 <tr>
-                                    <td>{{$reading->id}}</td>
+                                    <td><a href="{{ route('meter_reading', ['reading' => $reading->id]) }}"> {{$reading->id}}</a></td>
                                     <td><a href="{{ route('client-detail', ['client' => $reading->client->id]) }}">{{$reading->client->first_name}} {{$reading->client->last_name}}</a></td>
                                     <th>{{$reading->read_date}}</th>
                                     <th>{{$reading->reading}}</th>
