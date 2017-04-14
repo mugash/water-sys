@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'last_name' => 'required',
             'address' => 'required',
             'password' => 'required|min:6|confirmed',
-            'type' => 'required'
+            'user_type' => 'required'
         ]);
     }
 
@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'address' => $data['address'],
             'password' => bcrypt($data['password']),
-            'type' => $data['type']
+            'user_type' => $data['type']
         ]);
     }
 }

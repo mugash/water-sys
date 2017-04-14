@@ -106,12 +106,12 @@
                             <label for="type" class="col-md-4 control-label">Register as:</label>
 
                             <div class="col-md-6">
-                                @if ($errors->has('type'))
+                                @if ($errors->has('user_type'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('type') }}</strong>
+                                        <strong>{{ $errors->first('user_type') }}</strong>
                                     </span>
                                 @endif
-                                <select class="form-control" name="type" id="type">
+                                <select class="form-control" name="user_type" id="user_type">
                                     <option value="" disabled>Select type</option>
                                     <option value="admin">Admin</option>
                                     <option value="agent">Agent</option>
