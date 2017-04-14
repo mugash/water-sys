@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Meter Readings</div>
+                    <div class="panel-heading">Meter Readings
+                        <a href="{{ route('meter_reading_add') }}" class="pull-right">Record a Meter Reading</a> </div>
                     <div class="panel-body">
                         <h1 class="text-center">Meter Readings with clients</h1>
                         <table class="table table-condensed">
