@@ -44,7 +44,7 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                         <li><a href="{{ route('clients') }}">Clients</a></li>
-                        <li><a href="#">Meter Readings</a></li>
+                        <li><a href="{{ route('meter_reading_list') }}">Meter Readings</a></li>
                         <li><a href="#">Bills</a></li>
                         <li><a href="#">Payments</a></li>
                     </ul>

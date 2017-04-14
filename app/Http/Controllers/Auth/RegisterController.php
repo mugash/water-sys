@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use DebugBar\DebugBar;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'last_name' => 'required',
             'address' => 'required',
             'password' => 'required|min:6|confirmed',
+            'type' => 'required'
         ]);
     }
 
@@ -72,6 +74,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'address' => $data['address'],
             'password' => bcrypt($data['password']),
+            'type' => $data['type']
         ]);
     }
 }

@@ -102,6 +102,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                            <label for="type" class="col-md-4 control-label">Register as:</label>
+
+                            <div class="col-md-6">
+                                @if ($errors->has('type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('type') }}</strong>
+                                    </span>
+                                @endif
+                                <select class="form-control" name="type">
+                                    <option value="" disabled selected>Select type</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="agent">Agent</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

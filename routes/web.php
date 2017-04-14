@@ -32,3 +32,5 @@ Route::get('/clients/{client}/edit', 'ClientsController@update')->name('edit');
 Route::post('/clients/{client}/edit', 'ClientsController@save_client')->name('save-client');
 
 Route::get('/clients/{client}/delete', 'ClientsController@destroy')->name('destroy');
+
+Route::get('meter-readings', 'MeterReadingController@index')->name('meter_reading_list');
