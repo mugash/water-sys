@@ -112,7 +112,6 @@
                                     </span>
                                 @endif
                                 <select class="form-control" name="user_type" id="user_type">
-                                    <option value="" disabled>Select type</option>
                                     <option value="admin">Admin</option>
                                     <option value="agent">Agent</option>
                                 </select>

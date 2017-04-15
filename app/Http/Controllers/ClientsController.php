@@ -65,7 +65,7 @@ class ClientsController extends Controller
             'phone_number' => 'required',
             'plot_number' => 'required',
             'address' => 'required',
-            'meter_number' => 'required'
+            'meter_number' => 'required|unique:clients|max:10'
         ]);
 
         Client::create([
@@ -103,7 +103,7 @@ class ClientsController extends Controller
             'phone_number' => 'required',
             'plot_number' => 'required',
             'address' => 'required',
-            'meter_number' => 'required'
+            'meter_number' => 'required|unique:clients|max:10'
         ]);
         $client = Client::find($request['id']);
         $client->first_name = $request['first_name'];
