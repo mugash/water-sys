@@ -15,9 +15,9 @@ class Billing extends Model
     /*
      * Get the client for the bill
      * */
-    public function client()
+    public function meter_reading()
     {
-        return $this->belongsTo('App\Client');
+        return $this->belongsTo('App\MeterReading');
     }
 
     /*

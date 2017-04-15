@@ -20,12 +20,4 @@ class Client extends Model
     {
         return $this->hasMany('App\MeterReading');
     }
-
-    /*
-     * Get Billings
-     * */
-    public function billings()
-    {
-        return $this->hasMany('App\Billing');
-    }
 }

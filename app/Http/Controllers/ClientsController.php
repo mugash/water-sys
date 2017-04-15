@@ -20,7 +20,7 @@ class ClientsController extends Controller
     /**
      * Display all the clients in the company
      *
-     * @return Response
+     * @return \Response
      */
     public function index()
     {
@@ -34,7 +34,7 @@ class ClientsController extends Controller
      * Display details for a certain client
      *
      * @param Request $request
-     * @return Response
+     * @return \Response
      */
     public function client(Client $client)
     {
@@ -44,7 +44,7 @@ class ClientsController extends Controller
     /**
      * Display the form to add a new client
      *
-     * @return Response
+     * @return \Response
      */
     public function create()
     {
@@ -83,7 +83,7 @@ class ClientsController extends Controller
      * Display the update form with values already supplied
      *
      * @params Client $client
-     * @return Response
+     * @return \Response
      */
     public function update(Client $client)
     {
@@ -93,7 +93,7 @@ class ClientsController extends Controller
     /**
      *Save Updated client
      * @param Request $request
-     * @return Response
+     * @return \Response
      */
     public function save_client(Request $request)
     {

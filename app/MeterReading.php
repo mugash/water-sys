@@ -18,6 +18,13 @@ class MeterReading extends Model
     {
         return $this->belongsTo('App\Client');
     }
+    /*
+     * Get Billings
+     * */
+    public function billings()
+    {
+        return $this->hasMany('App\Billing');
+    }
 
 
 }

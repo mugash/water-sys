@@ -39,6 +39,10 @@ Route::get('/readings/create', 'MeterReadingController@create')->name('meter_rea
 
 Route::post('/readings/create', 'MeterReadingController@store')->name('meter_reading_store');
 
+Route::get('/readings/bill/create', 'MeterReadingController@create_and_generate_bill')->name('meter_reading_add_bill');
+
+Route::post('/readings/bill/create', 'MeterReadingController@store_and_generate_bill')->name('meter_reading_store_bill');
+
 Route::get('/readings/{reading}', 'MeterReadingController@reading')->name('meter_reading');
 
 Route::get('/readings/meter/{meter_number}', 'MeterReadingController@readings_by_meter_number')->name('meter_reading_by_meter');
@@ -46,5 +50,10 @@ Route::get('/readings/meter/{meter_number}', 'MeterReadingController@readings_by
 Route::post('/readings/meter', 'MeterReadingController@readings_by_meter_number_via_form')->name('meter_reading_by_meter_by_form');
 
 Route::get('/readings/{reading}/edit', 'MeterReadingController@edit')->name('meter_reading_edit');
+
+Route::get('/bills', 'BillingController@index')->name('bills');
+
+Route::get('/bills/create', 'BillingController@create')->name('bills_add');
+
 
 

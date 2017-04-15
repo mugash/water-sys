@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Record a Meter Reading</div>
+                    <div class="panel-heading">Record a Meter Reading
+                        <a href="{{ route('meter_reading_add') }}" class="pull-right">Record Meter Reading & Generate Bill</a></div>
                     <div class="panel-body">
                         <h1 class="text-center">Record a Meter Reading</h1>
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_store') }}">
