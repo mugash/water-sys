@@ -119,7 +119,7 @@ class ClientsController extends Controller
     /**
      *Mark status active to false after the user is deleted
      * @param Client $client
-     * @return redirect()
+     * @return \Response
      */
     public function destroy(Client $client)
     {

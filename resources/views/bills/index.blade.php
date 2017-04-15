@@ -14,8 +14,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Client</th>
+                                <th>Meter Number</th>
                                 <th>Meter Reading</th>
-                                <th>Number</th>
+                                <th>Bill Number</th>
                                 <th>Amount</th>
                                 <th>Deadline</th>
                                 <th>Balance</th>
@@ -24,6 +25,7 @@
                                 <tr>
                                     <td><a href="{{ route('client-detail', ['bill' => $bill->id]) }}"> {{ $bill->id }}</a></td>
                                     <td>{{$bill->meter_reading->client->first_name }} {{ $bill->meter_reading->client->last_name }}</td>
+                                    <td>{{ $bill->meter_reading->client->meter_number }}</td>
                                     <td>{{$bill->meter_reading->reading}} units</td>
                                     <td>{{ $bill->number }}</td>
                                     <td>Ksh. {{ $bill->amount }}</td>

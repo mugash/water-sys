@@ -55,5 +55,16 @@ Route::get('/bills', 'BillingController@index')->name('bills');
 
 Route::get('/bills/create', 'BillingController@create')->name('bills_add');
 
+Route::post('/bills/create', 'BillingController@store')->name('bills_store');
+
+Route::get('/bills/{bill}', 'BillingController@bill')->name('bill');
+
+Route::get('/bills/{bill}/edit', 'BillingController@update')->name('bill_edit');
+
+Route::get('/bills/edit', 'BillingController@store_updated')->name('bill_store_update');
+
+
+
+
 
 
