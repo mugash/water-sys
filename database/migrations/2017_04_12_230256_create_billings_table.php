@@ -19,6 +19,7 @@ class CreateBillingsTable extends Migration
             $table->string('number')->unique();
             $table->decimal('amount');
             $table->date('deadline');
+            $table->boolean('payed')->default(false);
             $table->timestamps();
         });
     }

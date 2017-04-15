@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClientsController extends Controller
 {
     /**
-     * Create new client controller
+     * Create new client controller and one must be authenticated
      *
      * @return void
      */
@@ -80,7 +80,7 @@ class ClientsController extends Controller
     }
 
     /**
-     * Display the update form with values already
+     * Display the update form with values already supplied
      *
      * @params Client $client
      * @return Response
