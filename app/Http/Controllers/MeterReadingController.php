@@ -98,9 +98,22 @@ class MeterReadingController extends Controller
      * @param meter_number
      * @return \Response
      */
-    //TODO pass arguments to a closure in php
+    //TODO pass arguments to a closure from the outer function statements in php
     public function readings_by_meter_number($meter_number)
     {
+        $readings = MeterReading::whereHas('client', function ($query) {
+            $query->where('meter_number', '=' , 14567);
+        })->get();
+        return view('meteter_readings.index', ['meter_readings' => $readings]);
+    }
+    /**
+    *Find readings from meter number submitted via form
+     * @param Request $request
+     * @return \Response
+     */
+    public function readings_by_meter_number_via_form(Request $request)
+    {
+        $meter_reading = $request['meter_reading'];
         $readings = MeterReading::whereHas('client', function ($query) {
             $query->where('meter_number', '=' , 14567);
         })->get();
