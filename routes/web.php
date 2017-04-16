@@ -47,6 +47,8 @@ Route::get('/readings/{reading}', 'MeterReadingController@reading')->name('meter
 
 Route::get('/readings/meter/{meter_number}', 'MeterReadingController@readings_by_meter_number')->name('meter_reading_by_meter');
 
+Route::post('/readings/meter', 'MeterReadingController@readings_by_meter_number_via_form')->name('meter_reading_by_meter_form');
+
 Route::post('/readings/meter', 'MeterReadingController@readings_by_meter_number_via_form')->name('meter_reading_by_meter_by_form');
 
 Route::get('/readings/{reading}/edit', 'MeterReadingController@edit')->name('meter_reading_edit');

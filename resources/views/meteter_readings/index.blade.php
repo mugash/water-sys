@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-3">
-                                <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_store') }}">
+                                <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_by_meter_by_form') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('meter_number') ? ' has-error' : '' }}">
                                         <label for="meter_number" class="col-md-4 control-label">Find readings by Meter number</label>

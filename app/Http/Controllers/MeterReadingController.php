@@ -191,10 +191,8 @@ class MeterReadingController extends Controller
      */
     public function readings_by_meter_number_via_form(Request $request)
     {
-        $meter_reading = $request['meter_reading'];
-        $readings = MeterReading::whereHas('client', function ($query) {
-            $query->where('meter_number', '=', 14567);
-        })->get();
+        $meter_reading = $request['meter_number'];
+        $readings =  Client::where('meter_number', $meter_reading)->get()->meter_readings;
         return view('meteter_readings.index', ['meter_readings' => $readings]);
     }
 }
