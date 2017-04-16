@@ -9,7 +9,7 @@
                         <a href="{{ route('meter_reading_add') }}" class="pull-right">Record Meter Reading</a></div>
                     <div class="panel-body">
                         <h1 class="text-center">Record a Meter Reading and Generate Bill</h1>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_store') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_store_bill') }}">
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('client_id') ? ' has-error' : '' }}">
                                 <label for="client_id" class="col-md-4 control-label">Client</label>

@@ -170,6 +170,7 @@ return [
 
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // Laravel IDE helper
         Barryvdh\Debugbar\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
         /*
          * Application Service Providers...
          */

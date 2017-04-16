@@ -19,6 +19,32 @@ class MeterReadingController extends Controller
     }
 
     /**
+     *generate random alphanumeric
+     * @param $size
+     * @return string
+     */
+    public function random_num($size)
+    {
+        $alpha_key = '';
+        $keys = range('A', 'Z');
+
+        for ($i = 0; $i < 2; $i++) {
+            $alpha_key .= $keys[array_rand($keys)];
+        }
+
+        $length = $size - 2;
+
+        $key = '';
+        $keys = range(0, 9);
+
+        for ($i = 0; $i < $length; $i++) {
+            $key .= $keys[array_rand($keys)];
+        }
+
+        return $alpha_key . $key;
+    }
+
+    /**
      *Return all the meter readings
      * @return \Response
      */
@@ -65,6 +91,7 @@ class MeterReadingController extends Controller
             'read_date' => $request['read_date'],
             'reading' => $request['reading']
         ]);
+        flash('Meter Reading added successfully');
         return redirect('readings');
     }
 
@@ -88,18 +115,17 @@ class MeterReadingController extends Controller
                 'read_date' => $request['read_date'],
                 'reading' => $request['reading']
             ]);
-            //TODO generate a random 10 alphanumeric code and alphabet in caps
-            $number = 'GHTBF545674';
+            $number = $this->random_num(10);
             $amount = $request['price'] * $meter_reading->reading;
             $billing = Billing::create([
-                'client_id' => $meter_reading->id,
+                'meter_reading_id' => $meter_reading->id,
                 'number' => $number,
                 'amount' => $amount,
                 'deadline' => $request['deadline'],
                 'balance' => $amount
             ]);
-            //TODO return view for the newly generated bill
-            return redirect('readings');
+            flash('Meter Reading added successfully and bill generated');
+            return redirect('bills/' . $billing->id);
         }
     }
 
@@ -141,6 +167,7 @@ class MeterReadingController extends Controller
         $reading->read_date = $request['read_date'];
         $reading->reading = $request['reading'];
         $reading->save();
+        flash('Meter Reading updated successfully');
         return redirect('/readings/' . $reading->id);
 
     }
@@ -149,7 +176,6 @@ class MeterReadingController extends Controller
      * @param meter_number
      * @return \Response
      */
-    //TODO pass arguments to a closure from the outer function statements in php
     public function readings_by_meter_number($meter_number)
     {
         $readings = MeterReading::whereHas('client', function ($query) {
@@ -165,7 +191,6 @@ class MeterReadingController extends Controller
      */
     public function readings_by_meter_number_via_form(Request $request)
     {
-        //TODO create an empty array
         $meter_reading = $request['meter_reading'];
         $readings = MeterReading::whereHas('client', function ($query) {
             $query->where('meter_number', '=', 14567);

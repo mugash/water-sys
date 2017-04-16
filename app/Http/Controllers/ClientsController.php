@@ -76,6 +76,7 @@ class ClientsController extends Controller
             'address' => $request['address'],
             'meter_number' => $request['meter_number']
         ]);
+        flash('Client Saved!');
         return redirect('clients');
     }
 
@@ -102,17 +103,24 @@ class ClientsController extends Controller
             'last_name' => 'required|max:255',
             'phone_number' => 'required',
             'plot_number' => 'required',
-            'address' => 'required',
-            'meter_number' => 'required|unique:clients|max:10'
+            'address' => 'required'
         ]);
         $client = Client::find($request['id']);
+        if ($client->meter_number != $request['meter_number']){
+            $this->validate($request, [
+                'meter_number' => 'required|unique:clients|max:10'
+            ]);
+        }
         $client->first_name = $request['first_name'];
         $client->last_name = $request['last_name'];
         $client->phone_number = $request['phone_number'];
         $client->plot_number = $request['plot_number'];
         $client->address = $request['address'];
-        $client->meter_number = $request['meter_number'];
+        if ($client->meter_number != $request['meter_number']){
+            $client->meter_number = $request['meter_number'];
+        }
         $client->save();
+        flash('Client Updated!');
         return redirect('clients/' . $client->id);
     }
 
@@ -126,6 +134,7 @@ class ClientsController extends Controller
         $selected_client = $client;
         $selected_client->active = false;
         $selected_client->save();
+        flash('Client Deleted!');
         return redirect('clients');
     }
 }
