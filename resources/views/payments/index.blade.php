@@ -5,15 +5,16 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Meter Readings
-                        <a href="{{ route('meter_reading_add') }}" class="pull-right">Record a Meter Reading</a> </div>
+                    <div class="panel-heading">Payments
+                        <a href="{{ route('payments_add') }}" class="pull-right">Pay a Bill</a> </div>
+
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-3">
-                                <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_store') }}">
+                                <form class="form-horizontal" role="form" method="POST" action="{{ route('payments_add') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('meter_number') ? ' has-error' : '' }}">
-                                        <label for="meter_number" class="col-md-4 control-label">Find readings by Meter number</label>
+                                        <label for="meter_number" class="col-md-4 control-label">Find payments by bill number</label>
                                         <div class="col-md-6">
                                             <div class="col-md-6">
                                                 <input id="meter_number" type="number" class="form-control" name="meter_number"
@@ -30,29 +31,29 @@
                                     <div class="form-group">
                                         <div class="col-md-6 col-md-offset-4">
                                             <button type="submit" class="btn btn-primary">
-                                                Find Meter Readings
+                                                Find Payments
                                             </button>
                                         </div>
                                     </div>
                                     <form>
                             </div>
                         </div>
-                        <h1 class="text-center">Meter Readings with clients</h1>
+                        <h1 class="text-center">Payments</h1>
                         <table class="table table-condensed">
                             <tr>
                                 <th>#</th>
-                                <th>Client</th>
-                                <th>Meter Number</th>
-                                <th>Read Date</th>
-                                <th>Reading</th>
+                                <th>Bill Number</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Type</th>
                             </tr>
-                            @foreach($meter_readings as $reading)
+                            @foreach($payments as $payment)
                                 <tr>
-                                    <td><a href="{{ route('meter_reading', ['reading' => $reading->id]) }}"> {{$reading->id}}</a></td>
-                                    <td><a href="{{ route('client-detail', ['client' => $reading->client->id]) }}">{{$reading->client->first_name}} {{$reading->client->last_name}}</a></td>
-                                    <td>{{ $reading->client->meter_number }}</td>
-                                    <th>{{$reading->read_date}}</th>
-                                    <th>{{$reading->reading}}</th>
+                                    <td><a href="{{ route('payment', ['payment' => $payment->id]) }}"> {{ $payment->id }}</a></td>
+                                    <td>{{$payment->billing->number}}</td>
+                                    <td>Ksh. {{ $payment->amount }}</td>
+                                    <td>{{$payment->date}}</td>
+                                    <td>{{ $payment->type }}</td>
                                 </tr>
                             @endforeach
                         </table>

@@ -45,7 +45,7 @@ class MeterReadingController extends Controller
     public function create_and_generate_bill()
     {
         $clients = Client::all();
-        return view('meteter_readings.create_bill', ['clients' => $clients]);
+        return view('meteter_readings.add_bill', ['clients' => $clients]);
     }
 
     /**
@@ -165,6 +165,7 @@ class MeterReadingController extends Controller
      */
     public function readings_by_meter_number_via_form(Request $request)
     {
+        //TODO create an empty array
         $meter_reading = $request['meter_reading'];
         $readings = MeterReading::whereHas('client', function ($query) {
             $query->where('meter_number', '=', 14567);

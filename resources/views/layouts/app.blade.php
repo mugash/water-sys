@@ -46,7 +46,7 @@
                         <li><a href="{{ route('clients') }}">Clients</a></li>
                         <li><a href="{{ route('meter_reading_list') }}">Meter Readings</a></li>
                         <li><a href="{{ route('bills') }}">Bills</a></li>
-                        <li><a href="#">Payments</a></li>
+                        <li><a href="{{ route('payments') }}">Payments</a></li>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

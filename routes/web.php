@@ -51,6 +51,8 @@ Route::post('/readings/meter', 'MeterReadingController@readings_by_meter_number_
 
 Route::get('/readings/{reading}/edit', 'MeterReadingController@edit')->name('meter_reading_edit');
 
+Route::post('/readings/edit', 'MeterReadingController@store_edited')->name('meter_reading_update');
+
 Route::get('/bills', 'BillingController@index')->name('bills');
 
 Route::get('/bills/create', 'BillingController@create')->name('bills_add');
@@ -61,7 +63,15 @@ Route::get('/bills/{bill}', 'BillingController@bill')->name('bill');
 
 Route::get('/bills/{bill}/edit', 'BillingController@update')->name('bill_edit');
 
-Route::get('/bills/edit', 'BillingController@store_updated')->name('bill_store_update');
+Route::post('/bills/edit', 'BillingController@store_updated')->name('bill_store_update');
+
+Route::get('/payments', 'PaymentController@index')->name('payments');
+
+Route::get('/payments/add', 'PaymentController@create')->name('payments_add');
+
+Route::post('/payments/add', 'PaymentController@store')->name('payments_add_store');
+
+Route::get('/payments/{payment}', 'PaymentController@payment')->name('payment');
 
 
 

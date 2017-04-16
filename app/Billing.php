@@ -10,7 +10,7 @@ class Billing extends Model
      * Mass assignable fields
      * */
     protected $fillable = [
-        'client_id', 'amount', 'deadline'
+        'meter_reading_id', 'number', 'amount', 'deadline', 'balance'
     ];
     /*
      * Get the client for the bill

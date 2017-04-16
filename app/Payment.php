@@ -13,7 +13,7 @@ class Payment extends Model
     /*
      * Get the Bill for payment
      * */
-    public function bill()
+    public function billing()
     {
         return $this->belongsTo('App\Billing');
     }

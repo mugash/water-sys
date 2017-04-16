@@ -5,13 +5,12 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Update Meter Reading
-                        <a href="{{ route('meter_reading_add') }}" class="pull-right">Record Meter Reading & Generate Bill</a></div>
+                    <div class="panel-heading">Record a Meter Reading and Generate a bill
+                        <a href="{{ route('meter_reading_add') }}" class="pull-right">Record Meter Reading</a></div>
                     <div class="panel-body">
-                        <h1 class="text-center">Update Meter Reading</h1>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_update') }}">
+                        <h1 class="text-center">Record a Meter Reading and Generate Bill</h1>
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_store') }}">
                             {{ csrf_field() }}
-                            <input type="hidden" name="id" value="{{ $reading->id }}">
                             <div class="form-group{{ $errors->has('client_id') ? ' has-error' : '' }}">
                                 <label for="client_id" class="col-md-4 control-label">Client</label>
                                 <div class="col-md-6">
@@ -27,7 +26,7 @@
 
                                 <div class="col-md-6">
                                     <input id="read_date" type="date" class="form-control" name="read_date"
-                                           value="{{ $reading->read_date }}" required autofocus>
+                                           value="{{ old('read_date') }}" required autofocus>
 
                                     @if ($errors->has('read_date'))
                                         <span class="help-block">
@@ -41,7 +40,7 @@
 
                                 <div class="col-md-6">
                                     <input id="reading" type="number" class="form-control" name="reading"
-                                           value="{{ $reading->reading }}" required autofocus>
+                                           value="{{ old('reading') }}" required autofocus>
 
                                     @if ($errors->has('reading'))
                                         <span class="help-block">
@@ -50,10 +49,38 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+                                <label for="price" class="col-md-4 control-label">Price per Unit</label>
+
+                                <div class="col-md-6">
+                                    <input id="price" type="number" class="form-control" name="price"
+                                           value="{{ old('price') }}" required autofocus>
+
+                                    @if ($errors->has('price'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('price') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('deadline') ? ' has-error' : '' }}">
+                                <label for="deadline" class="col-md-4 control-label">Deadline to pay bill</label>
+
+                                <div class="col-md-6">
+                                    <input id="deadline" type="date" class="form-control" name="deadline"
+                                           value="{{ old('deadline') }}" required autofocus>
+
+                                    @if ($errors->has('deadline'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('deadline') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Update Meter Reading
+                                        Record Meter Reading
                                     </button>
                                 </div>
                             </div>
