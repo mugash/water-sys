@@ -25,8 +25,8 @@ class BillingController extends Controller
      */
     public function index()
     {
-        $bills = \DB::table('billings')->where('balance', '>', 0)
-            ->orderBy('Balance')
+        $bills = Billing::where('balance', '>', 0)
+            ->orderBy('balance')
             ->get();
         return view('bills.index', ['bills' => $bills]);
     }
