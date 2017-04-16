@@ -68,7 +68,7 @@ class PaymentController extends Controller
             flash('Payment made successfully. New Balance is '.$bill->balance)->important();
             return redirect('payments');
         }
-        flash('Sorry that bill has already been paid')->important();
+        flash('Sorry that bill has already been paid', 'danger')->important();
         return redirect('payments');
     }
 
