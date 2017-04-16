@@ -65,10 +65,10 @@ class PaymentController extends Controller
                 'amount' => $request['amount'],
                 'type' => $request['payment_type']
             ]);
-            flash('Payment made successfully. New Balance is '.$bill->balance);
+            flash('Payment made successfully. New Balance is '.$bill->balance)->important();
             return redirect('payments');
         }
-        flash('Sorry that bill has already been paid');
+        flash('Sorry that bill has already been paid')->important();
         return redirect('payments');
     }
 
