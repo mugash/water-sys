@@ -24,43 +24,43 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                            <label for="first_name" class="col-md-4 control-label">First Name</label>
+                        <div class="form-group{{ $errors->has('users_first_name') ? ' has-error' : '' }}">
+                            <label for="users_first_name" class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
+                                <input id="users_first_name" type="text" class="form-control" name="users_first_name" value="{{ old('users_first_name') }}" required autofocus>
 
-                                @if ($errors->has('first_name'))
+                                @if ($errors->has('users_first_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                        <strong>{{ $errors->first('users_first_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label for="last_name" class="col-md-4 control-label">Last Name</label>
+                        <div class="form-group{{ $errors->has('users_last_name') ? ' has-error' : '' }}">
+                            <label for="users_last_name" class="col-md-4 control-label">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                                <input id="users_last_name" type="text" class="form-control" name="users_last_name" value="{{ old('users_last_name') }}" required autofocus>
 
-                                @if ($errors->has('last_name'))
+                                @if ($errors->has('users_last_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                        <strong>{{ $errors->first('users_last_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address" class="col-md-4 control-label">Address</label>
+                        <div class="form-group{{ $errors->has('users_address') ? ' has-error' : '' }}">
+                            <label for="users_address" class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+                                <input id="users_address" type="text" class="form-control" name="users_address" value="{{ old('users_address') }}" required autofocus>
 
-                                @if ($errors->has('address'))
+                                @if ($errors->has('users_address'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
+                                        <strong>{{ $errors->first('users_address') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -102,16 +102,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('users_user_type') ? ' has-error' : '' }}">
                             <label for="type" class="col-md-4 control-label">Register as:</label>
 
                             <div class="col-md-6">
-                                @if ($errors->has('user_type'))
+                                @if ($errors->has('users_user_type'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('user_type') }}</strong>
+                                        <strong>{{ $errors->first('users_user_type') }}</strong>
                                     </span>
                                 @endif
-                                <select class="form-control" name="user_type" id="user_type">
+                                <select class="form-control" name="users_user_type" id="users_user_type">
                                     <option value="admin">Admin</option>
                                     <option value="agent">Agent</option>
                                 </select>

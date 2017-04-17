@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('address');
-            $table->enum('user_type', ['choices' => 'admin','agent'])->default('agent');
+            $table->string('users_first_name');
+            $table->string('users_last_name');
+            $table->string('users_address');
+            $table->enum('users_user_type', ['choices' => 'admin','agent'])->default('agent');
             $table->rememberToken();
             $table->timestamps();
         });

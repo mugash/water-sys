@@ -9,7 +9,7 @@ class MeterReading extends Model
     /*
      * mass assignable fields
     */
-    protected $fillable = ['client_id', 'read_date', 'reading'];
+    protected $fillable = ['client_id', 'meter_read_date', 'meter_reading'];
 
     /**
      * Get the client who own a meter reading

@@ -25,30 +25,30 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
-                                <label for="amount" class="col-md-4 control-label">Amount</label>
+                            <div class="form-group{{ $errors->has('payment_amount') ? ' has-error' : '' }}">
+                                <label for="payment_amount" class="col-md-4 control-label">payment_amount</label>
 
                                 <div class="col-md-6">
-                                    <input id="amount" type="number" class="form-control" name="amount"
-                                           value="{{ old('amount') }}" required autofocus>
+                                    <input id="payment_amount" type="number" class="form-control" name="payment_amount"
+                                           value="{{ old('payment_amount') }}" required autofocus>
 
-                                    @if ($errors->has('amount'))
+                                    @if ($errors->has('payment_amount'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('amount') }}</strong>
+                                        <strong>{{ $errors->first('payment_amount') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
-                                <label for="date" class="col-md-4 control-label">Payment Date</label>
+                            <div class="form-group{{ $errors->has('payment_date') ? ' has-error' : '' }}">
+                                <label for="payment_date" class="col-md-4 control-label">Payment Date</label>
 
                                 <div class="col-md-6">
-                                    <input id="date" type="date" class="form-control" name="date"
-                                           value="{{ old('date') }}" required autofocus>
+                                    <input id="payment_date" type="date" class="form-control" name="payment_date"
+                                           value="{{ old('payment_date') }}" required autofocus>
 
-                                    @if ($errors->has('date'))
+                                    @if ($errors->has('payment_date'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('date') }}</strong>
+                                        <strong>{{ $errors->first('payment_date') }}</strong>
                                     </span>
                                     @endif
                                 </div>

@@ -15,7 +15,7 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="meter_reading_id">
                                         @foreach($readings as $reading)
-                                            <option value="{{$reading->id}}">{{$reading->client->first_name}} {{$reading->client->last_name}} {{$reading->reading}} units</option>
+                                            <option value="{{$reading->id}}">{{$reading->client->clients_first_name}} {{$reading->client->clients_last_name}} {{$reading->meter_reading}} units</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -34,16 +34,16 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('deadline') ? ' has-error' : '' }}">
-                                <label for="deadline" class="col-md-4 control-label">Deadline to pay bill</label>
+                            <div class="form-group{{ $errors->has('bill_deadline') ? ' has-error' : '' }}">
+                                <label for="bill_deadline" class="col-md-4 control-label">Deadline to pay bill</label>
 
                                 <div class="col-md-6">
-                                    <input id="deadline" type="date" class="form-control" name="deadline"
-                                           value="{{ old('deadline') }}" required autofocus>
+                                    <input id="bill_deadline" type="date" class="form-control" name="bill_deadline"
+                                           value="{{ old('bill_deadline') }}" required autofocus>
 
-                                    @if ($errors->has('deadline'))
+                                    @if ($errors->has('bill_deadline'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('deadline') }}</strong>
+                                        <strong>{{ $errors->first('bill_deadline') }}</strong>
                                     </span>
                                     @endif
                                 </div>

@@ -60,21 +60,21 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'phone_number' => 'required',
-            'plot_number' => 'required',
-            'address' => 'required',
-            'meter_number' => 'required|unique:clients|max:10'
+            'clients_first_name' => 'required|max:255',
+            'clients_last_name' => 'required|max:255',
+            'clients_phone_number' => 'required',
+            'clients_plot_number' => 'required',
+            'clients_address' => 'required',
+            'clients_meter_number' => 'required|unique:clients|max:10'
         ]);
 
         Client::create([
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'phone_number' => $request['phone_number'],
-            'plot_number' => $request['plot_number'],
-            'address' => $request['address'],
-            'meter_number' => $request['meter_number']
+            'clients_first_name' => $request['clients_first_name'],
+            'clients_last_name' => $request['clients_last_name'],
+            'clients_phone_number' => $request['clients_phone_number'],
+            'clients_plot_number' => $request['clients_plot_number'],
+            'clients_address' => $request['clients_address'],
+            'clients_meter_number' => $request['clients_meter_number']
         ]);
         flash('Client Saved!');
         return redirect('clients');
@@ -99,25 +99,25 @@ class ClientsController extends Controller
     public function save_client(Request $request)
     {
         $this->validate($request, [
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'phone_number' => 'required',
-            'plot_number' => 'required',
-            'address' => 'required'
+            'clients_first_name' => 'required|max:255',
+            'clients_last_name' => 'required|max:255',
+            'clients_phone_number' => 'required',
+            'clients_plot_number' => 'required',
+            'clients_address' => 'required'
         ]);
         $client = Client::find($request['id']);
-        if ($client->meter_number != $request['meter_number']){
+        if ($client->clients_meter_number != $request['clients_meter_number']){
             $this->validate($request, [
-                'meter_number' => 'required|unique:clients|max:10'
+                'clients_meter_number' => 'required|unique:clients|max:10'
             ]);
         }
-        $client->first_name = $request['first_name'];
-        $client->last_name = $request['last_name'];
-        $client->phone_number = $request['phone_number'];
-        $client->plot_number = $request['plot_number'];
-        $client->address = $request['address'];
-        if ($client->meter_number != $request['meter_number']){
-            $client->meter_number = $request['meter_number'];
+        $client->clients_first_name = $request['clients_first_name'];
+        $client->clients_last_name = $request['clients_last_name'];
+        $client->clients_phone_number = $request['clients_phone_number'];
+        $client->clients_plot_number = $request['clients_plot_number'];
+        $client->clients_address = $request['clients_address'];
+        if ($client->clients_meter_number != $request['clients_meter_number']){
+            $client->clients_meter_number = $request['clients_meter_number'];
         }
         $client->save();
         flash('Client Updated!');

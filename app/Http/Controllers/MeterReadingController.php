@@ -83,13 +83,13 @@ class MeterReadingController extends Controller
     {
         $this->validate($request, [
             'client_id' => 'required',
-            'read_date' => 'required',
-            'reading' => 'required'
+            'meter_read_date' => 'required',
+            'meter_reading' => 'required'
         ]);
         MeterReading::create([
             'client_id' => $request['client_id'],
-            'read_date' => $request['read_date'],
-            'reading' => $request['reading']
+            'meter_read_date' => $request['meter_read_date'],
+            'meter_reading' => $request['meter_reading']
         ]);
         flash('Meter Reading added successfully');
         return redirect('readings');
@@ -105,24 +105,24 @@ class MeterReadingController extends Controller
         {
             $this->validate($request, [
                 'client_id' => 'required',
-                'read_date' => 'required',
-                'reading' => 'required|numeric',
+                'meter_read_date' => 'required',
+                'meter_reading' => 'required|numeric',
                 'price' => 'required|numeric',
-                'deadline' => 'required'
+                'bill_deadline' => 'required'
             ]);
             $meter_reading = MeterReading::create([
                 'client_id' => $request['client_id'],
-                'read_date' => $request['read_date'],
-                'reading' => $request['reading']
+                'meter_read_date' => $request['meter_read_date'],
+                'meter_reading' => $request['meter_reading']
             ]);
-            $number = $this->random_num(10);
-            $amount = $request['price'] * $meter_reading->reading;
+            $bill_number = $this->random_num(10);
+            $bill_amount = $request['price'] * $meter_reading->meter_reading;
             $billing = Billing::create([
                 'meter_reading_id' => $meter_reading->id,
-                'number' => $number,
-                'amount' => $amount,
-                'deadline' => $request['deadline'],
-                'balance' => $amount
+                'bill_number' => $bill_number,
+                'bill_amount' => $bill_amount,
+                'bill_deadline' => $request['bill_deadline'],
+                'bill_balance' => $bill_amount
             ]);
             flash('Meter Reading added successfully and bill generated');
             return redirect('bills/' . $billing->id);
@@ -159,13 +159,13 @@ class MeterReadingController extends Controller
     {
         $this->validate($request, [
             'client_id' => 'required',
-            'read_date' => 'required',
-            'reading' => 'required'
+            'meter_read_date' => 'required',
+            'meter_reading' => 'required'
         ]);
         $reading = MeterReading::find($request['id']);
         $reading->client_id = $request['client_id'];
-        $reading->read_date = $request['read_date'];
-        $reading->reading = $request['reading'];
+        $reading->meter_read_date = $request['meter_read_date'];
+        $reading->meter_reading = $request['meter_reading'];
         $reading->save();
         flash('Meter Reading updated successfully');
         return redirect('/readings/' . $reading->id);

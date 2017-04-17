@@ -15,12 +15,12 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('phone_number');
-            $table->unsignedInteger('plot_number');
-            $table->string('address');
-            $table->unsignedInteger('meter_number');
+            $table->string('clients_first_name');
+            $table->string('clients_last_name');
+            $table->string('clients_phone_number');
+            $table->unsignedInteger('clients_plot_number');
+            $table->string('clients_address');
+            $table->unsignedInteger('clients_meter_number');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

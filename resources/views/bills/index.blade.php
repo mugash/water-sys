@@ -53,13 +53,13 @@
                             @foreach($bills as $bill)
                                 <tr>
                                     <td><a href="{{ route('bill', ['bill' => $bill->id]) }}"> {{ $bill->id }}</a></td>
-                                    <td>{{$bill->meter_reading->client->first_name }} {{ $bill->meter_reading->client->last_name }}</td>
-                                    <td>{{ $bill->meter_reading->client->meter_number }}</td>
-                                    <td>{{$bill->meter_reading->reading}} units</td>
-                                    <td>{{ $bill->number }}</td>
-                                    <td>Ksh. {{ $bill->amount }}</td>
-                                    <td>{{ $bill->deadline }}</td>
-                                    <td>Ksh. {{ $bill->balance }}</td>
+                                    <td>{{$bill->meter_reading->client->clients_first_name }} {{ $bill->meter_reading->client->clients_last_name }}</td>
+                                    <td>{{ $bill->meter_reading->client->clients_meter_number }}</td>
+                                    <td>{{$bill->meter_reading->meter_reading}} units</td>
+                                    <td>{{ $bill->bill_number }}</td>
+                                    <td>Ksh. {{ $bill->bill_amount }}</td>
+                                    <td>{{ $bill->bill_deadline }}</td>
+                                    <td>Ksh. {{ $bill->bill_balance }}</td>
                                 </tr>
                             @endforeach
                         </table>

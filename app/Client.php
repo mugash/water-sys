@@ -10,7 +10,7 @@ class Client extends Model
      * Attributes that are mass assignable
      */
     protected $fillable = [
-        'first_name', 'last_name', 'phone_number', 'plot_number', 'address', 'meter_number'
+        'clients_first_name', 'clients_last_name', 'clients_phone_number', 'clients_plot_number', 'clients_address', 'clients_meter_number'
     ];
 
     /*

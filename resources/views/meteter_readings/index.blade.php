@@ -50,9 +50,9 @@
                                 <tr>
                                     <td><a href="{{ route('meter_reading', ['reading' => $reading->id]) }}"> {{$reading->id}}</a></td>
                                     <td><a href="{{ route('client-detail', ['client' => $reading->client->id]) }}">{{$reading->client->first_name}} {{$reading->client->last_name}}</a></td>
-                                    <td>{{ $reading->client->meter_number }}</td>
-                                    <th>{{$reading->read_date}}</th>
-                                    <th>{{$reading->reading}}</th>
+                                    <td>{{ $reading->client->clients_meter_number }}</td>
+                                    <th>{{$reading->meter_read_date}}</th>
+                                    <th>{{$reading->meter_reading}}</th>
                                 </tr>
                             @endforeach
                         </table>

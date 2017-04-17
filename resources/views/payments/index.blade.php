@@ -43,17 +43,17 @@
                             <tr>
                                 <th>#</th>
                                 <th>Bill Number</th>
-                                <th>Amount</th>
+                                <th>payment_amount</th>
                                 <th>Date</th>
                                 <th>Type</th>
                             </tr>
                             @foreach($payments as $payment)
                                 <tr>
                                     <td><a href="{{ route('payment', ['payment' => $payment->id]) }}"> {{ $payment->id }}</a></td>
-                                    <td>{{$payment->billing->number}}</td>
-                                    <td>Ksh. {{ $payment->amount }}</td>
-                                    <td>{{$payment->date}}</td>
-                                    <td>{{ $payment->type }}</td>
+                                    <td>{{$payment->billing->bill_number}}</td>
+                                    <td>Ksh. {{ $payment->payment_amount }}</td>
+                                    <td>{{$payment->payment_date}}</td>
+                                    <td>{{ $payment->payment_type }}</td>
                                 </tr>
                             @endforeach
                         </table>

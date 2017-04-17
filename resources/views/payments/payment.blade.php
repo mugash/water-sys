@@ -9,10 +9,10 @@
                     <div class="panel-body">
                         <h1 class="text-center">{{$payment->billing->meter_reading->client->first_name}} {{$payment->billing->meter_reading->client->last_name}} Payments details</h1>
                         <p><b>Bill Number:</b>{{$payment->billing->number}}</p>
-                        <p><b>Amount: </b> {{$payment->amount}}</p>
-                        <p><b>Date: </b> {{$payment->date}}</p>
-                        <p><b>Type: </b>{{$payment->type}}</p>
-                        <a href="#">Edit Bill</a>
+                        <p><b>payment_amount: </b> {{$payment->payment_amount}}</p>
+                        <p><b>Date: </b> {{$payment->payment_date}}</p>
+                        <p><b>Type: </b>{{$payment->payment_type}}</p>
+                        <a href="#">Edit Payment</a>
                     </div>
                 </div>
             </div>

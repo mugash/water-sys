@@ -51,8 +51,8 @@ class BillingController extends Controller
      */
     public function index()
     {
-        $bills = Billing::where('balance', '>', 0)
-            ->orderBy('balance')
+        $bills = Billing::where('bill_balance', '>', 0)
+            ->orderBy('bill_balance')
             ->get();
         return view('bills.index', ['bills' => $bills]);
     }
@@ -74,21 +74,20 @@ class BillingController extends Controller
      */
     public function store(Request $request)
     {
-        //TODO generate a random alphanumeric
         $this->validate($request, [
             'meter_reading_id' => 'required|numeric',
             'price' => 'required|numeric',
-            'deadline' => 'required'
+            'bill_deadline' => 'required'
         ]);
         $meter_reading = MeterReading::find($request['meter_reading_id']);
-        $amount = $request['price'] * $meter_reading->reading;
-        $number = $this->random_num(10);
+        $bill_amount = $request['price'] * $meter_reading->meter_reading;
+        $bill_number = $this->random_num(10);
         $bill = Billing::create([
             'meter_reading_id' => $request['meter_reading_id'],
-            'number' => $number,
-            'amount' => $amount,
-            'deadline' => $request['deadline'],
-            'balance' => $amount
+            'bill_number' => $bill_number,
+            'bill_amount' => $bill_amount,
+            'bill_deadline' => $request['bill_deadline'],
+            'bill_balance' => $bill_amount
         ]);
         flash('Created the bill successfully');
         return redirect('/bills/' . $bill->id);
@@ -124,10 +123,10 @@ class BillingController extends Controller
         $this->validate($request, [
             'meter_reading_id' => 'required|numeric',
             'price' => 'required|numeric',
-            'deadline' => 'required'
+            'bill_deadline' => 'required'
         ]);
         $meter_reading = MeterReading::find($request['meter_reading_id']);
-        $amount = $request['price'] * $meter_reading->reading;
+        $bill_amount = $request['price'] * $meter_reading->meter_reading;
         $bill = Billing::find($request['id']);
         $payments = Payment::where('billing_id', $bill->id);
         $sum = 0;
@@ -136,22 +135,22 @@ class BillingController extends Controller
                 $sum += $payment->amount;
             }
         }
-        $balance = $amount - $sum;
+        $bill_balance = $bill_amount - $sum;
         $bill->meter_reading_id = $request['meter_reading_id'];
-        $bill->amount = $amount;
-        $bill->deadline = $request['deadline'];
-        $bill->balance = $balance;
+        $bill->bill_amount = $bill_amount;
+        $bill->bill_deadline = $request['bill_deadline'];
+        $bill->bill_balance = $bill_balance;
         $bill->save();
         flash('Updated the bill successfully');
         return redirect('bills/' . $bill->id);
     }
 
     /**
-     * Return bills for a certain meter number
+     * Return bills for a certain meter bill_number
      * @param Request $request
      * @return \Response
      */
-    public function bills_by_meter_number(Request $request)
+    public function bills_by_meter_bill_number(Request $request)
     {
         $meter_reading = $request['meter_reading'];
         $client = Client::find($meter_reading);

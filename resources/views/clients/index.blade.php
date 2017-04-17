@@ -17,18 +17,18 @@
                                 <th>Last Name</th>
                                 <th>phone Number</th>
                                 <th>Plot Number</th>
-                                <th>Address</th>
+                                <th>clients_address</th>
                                 <th>Meter Number</th>
                             </tr>
                             @foreach($clients as $client)
                             <tr>
                                     <td><a href="{{ route('client-detail', ['client' => $client->id]) }}"> {{ $client->id }}</a></td>
-                                    <td>{{$client->first_name }}</td>
-                                    <td>{{$client->last_name }}</td>
-                                    <td>{{ $client->phone_number }}</td>
-                                    <td>{{ $client->plot_number }}</td>
-                                    <td>{{ $client->address }}</td>
-                                    <td>{{ $client->meter_number }}</td>
+                                    <td>{{$client->clients_first_name }}</td>
+                                    <td>{{$client->clients_last_name }}</td>
+                                    <td>{{ $client->clients_phone_number }}</td>
+                                    <td>{{ $client->clients_plot_number }}</td>
+                                    <td>{{ $client->clients_address }}</td>
+                                    <td>{{ $client->clients_meter_number }}</td>
                             </tr>
                             @endforeach
                         </table>

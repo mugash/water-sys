@@ -23,7 +23,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::orderBy('date')->get();
+        $payments = Payment::orderBy('payment_date')->get();
         return view('payments.index', ['payments' => $payments]);
     }
 
@@ -46,26 +46,26 @@ class PaymentController extends Controller
     {
         $this->validate($request, [
             'billing_id' => 'required|numeric',
-            'amount' => 'required|numeric',
-            'date' => 'required',
+            'payment_amount' => 'required|numeric',
+            'payment_date' => 'required',
             'payment_type' => 'required'
         ]);
         $sum = 0;
         $bill = Billing::find($request['billing_id']);
         foreach ($bill->payments as $payment) {
-            $sum += $payment->amount;
+            $sum += $payment->payment_amount;
         }
-        $balance = $bill->amount - $sum;
+        $balance = $bill->bill_amount - $sum;
         if ($balance > 0) {
-            $bill->balance = $bill->balance - $request['amount'];
+            $bill->bill_balance = $bill->bill_balance - $request['payment_amount'];
             $bill->save();
             Payment::create([
                 'billing_id' => $request['billing_id'],
-                'date' => $request['date'],
-                'amount' => $request['amount'],
-                'type' => $request['payment_type']
+                'payment_date' => $request['payment_date'],
+                'payment_amount' => $request['payment_amount'],
+                'payment_type' => $request['payment_type']
             ]);
-            flash('Payment made successfully. New Balance is '.$bill->balance)->important();
+            flash('Payment made successfully. New Balance is '.$bill->bill_balance)->important();
             return redirect('payments');
         }
         flash('Sorry that bill has already been paid', 'danger')->important();
@@ -99,24 +99,24 @@ class PaymentController extends Controller
     {
         $this->validate($request, [
             'billing_id' => 'required|numeric',
-            'amount' => 'required|numeric',
-            'date' => 'required',
-            'type' => 'required'
+            'payment_amount' => 'required|numeric',
+            'payment_date' => 'required',
+            'payment_type' => 'required'
         ]);
         $sum = 0;
         $bill = Billing::find($request['billing_id']);
         foreach ($bill->payments as $payment) {
-            $sum += $payment->amount;
+            $sum += $payment->payment_amount;
         }
         $payment = Payment::find($request['id']);
-        $balance = $bill->amount - $sum;
+        $balance = $bill->payment_amount - $sum;
         if ($balance > 0) {
-            $bill->balance = $bill->balance - $request['amount'];
+            $bill->balance = $bill->balance - $request['payment_amount'];
             $bill->save();
             $payment->billing_id = $request['billing_id'];
-            $payment->amount = $request['amount'];
-            $payment->date = $request['date'];
-            $payment->type = $request['type'];
+            $payment->payment_amount = $request['payment_amount'];
+            $payment->payment_date = $request['payment_date'];
+            $payment->payment_type = $request['payment_type'];
             $payment->save();
             return redirect('/payment' . $payment->id);
         }

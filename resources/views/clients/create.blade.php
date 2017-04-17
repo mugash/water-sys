@@ -10,80 +10,80 @@
                         <h1 class="text-center">Add A New Client</h1>
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('client_store') }}">
                             {{ csrf_field() }}
-                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                                <label for="first_name" class="col-md-4 control-label">First Name</label>
+                            <div class="form-group{{ $errors->has('clients_first_name') ? ' has-error' : '' }}">
+                                <label for="clients_first_name" class="col-md-4 control-label">First Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
+                                    <input id="clients_first_name" type="text" class="form-control" name="clients_first_name" value="{{ old('clients_first_name') }}" required autofocus>
 
-                                    @if ($errors->has('first_name'))
+                                    @if ($errors->has('clients_first_name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                        <strong>{{ $errors->first('clients_first_name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                                <label for="last_name" class="col-md-4 control-label">Last Name</label>
+                            <div class="form-group{{ $errors->has('clients_last_name') ? ' has-error' : '' }}">
+                                <label for="clients_last_name" class="col-md-4 control-label">Last Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="last_name" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                                    <input id="clients_last_name" type="text" class="form-control" name="clients_last_name" value="{{ old('clients_last_name') }}" required autofocus>
 
-                                    @if ($errors->has('last_name'))
+                                    @if ($errors->has('clients_last_name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                        <strong>{{ $errors->first('clients_last_name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
-                                <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
+                            <div class="form-group{{ $errors->has('clients_phone_number') ? ' has-error' : '' }}">
+                                <label for="clients_phone_number" class="col-md-4 control-label">Phone Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone_number" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required autofocus>
+                                    <input id="clients_phone_number" type="text" class="form-control" name="clients_phone_number" value="{{ old('clients_phone_number') }}" required autofocus>
 
-                                    @if ($errors->has('phone_number'))
+                                    @if ($errors->has('clients_phone_number'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('phone_number') }}</strong>
+                                        <strong>{{ $errors->first('clients_phone_number') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('plot_number') ? ' has-error' : '' }}">
-                                <label for="plot_number" class="col-md-4 control-label">Plot Number</label>
+                            <div class="form-group{{ $errors->has('clients_plot_number') ? ' has-error' : '' }}">
+                                <label for="clients_plot_number" class="col-md-4 control-label">Plot Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="plot_number" type="number" class="form-control" name="plot_number" value="{{ old('plot_number') }}" required autofocus>
+                                    <input id="clients_plot_number" type="number" class="form-control" name="clients_plot_number" value="{{ old('clients_plot_number') }}" required autofocus>
 
-                                    @if ($errors->has('plot_number'))
+                                    @if ($errors->has('clients_plot_number'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('plot_number') }}</strong>
+                                        <strong>{{ $errors->first('clients_plot_number') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                                <label for="address" class="col-md-4 control-label">Address</label>
+                            <div class="form-group{{ $errors->has('clients_address') ? ' has-error' : '' }}">
+                                <label for="clients_address" class="col-md-4 control-label">Address</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
+                                    <input id="clients_address" type="text" class="form-control" name="clients_address" value="{{ old('clients_address') }}" required autofocus>
 
-                                    @if ($errors->has('address'))
+                                    @if ($errors->has('clients_address'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
+                                        <strong>{{ $errors->first('clients_address') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('meter_number') ? ' has-error' : '' }}">
-                                <label for="meter_number" class="col-md-4 control-label">Meter Number</label>
+                            <div class="form-group{{ $errors->has('clients_meter_number') ? ' has-error' : '' }}">
+                                <label for="clients_meter_number" class="col-md-4 control-label">Meter Number</label>
 
                                 <div class="col-md-6">
-                                    <input id="meter_number" type="number" class="form-control" name="meter_number" value="{{ old('meter_number') }}" required autofocus>
+                                    <input id="clients_meter_number" type="number" class="form-control" name="clients_meter_number" value="{{ old('clients_meter_number') }}" required autofocus>
 
-                                    @if ($errors->has('meter_number'))
+                                    @if ($errors->has('clients_meter_number'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('meter_number') }}</strong>
+                                        <strong>{{ $errors->first('clients_meter_number') }}</strong>
                                     </span>
                                     @endif
                                 </div>

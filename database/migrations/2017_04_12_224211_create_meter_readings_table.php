@@ -16,8 +16,8 @@ class CreateMeterReadingsTable extends Migration
         Schema::create('meter_readings', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('client_id')->nullable();
-            $table->date('read_date');
-            $table->unsignedInteger('reading');
+            $table->date('meter_read_date');
+            $table->unsignedInteger('meter_reading');
             $table->timestamps();
         });
     }

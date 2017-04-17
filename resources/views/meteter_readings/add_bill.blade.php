@@ -16,35 +16,35 @@
                                 <div class="col-md-6">
                                     <select class="form-control" name="client_id">
                                         @foreach($clients as $client)
-                                            <option value="{{$client->id}}">{{$client->first_name}} {{$client->last_name}}</option>
+                                            <option value="{{$client->id}}">{{$client->clients_first_name}} {{$client->clients_last_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('read_date') ? ' has-error' : '' }}">
-                                <label for="read_date" class="col-md-4 control-label">Read Date</label>
+                            <div class="form-group{{ $errors->has('meter_read_date') ? ' has-error' : '' }}">
+                                <label for="meter_read_date" class="col-md-4 control-label">Read Date</label>
 
                                 <div class="col-md-6">
-                                    <input id="read_date" type="date" class="form-control" name="read_date"
-                                           value="{{ old('read_date') }}" required autofocus>
+                                    <input id="meter_read_date" type="date" class="form-control" name="meter_read_date"
+                                           value="{{ old('meter_read_date') }}" required autofocus>
 
-                                    @if ($errors->has('read_date'))
+                                    @if ($errors->has('meter_read_date'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('read_date') }}</strong>
+                                        <strong>{{ $errors->first('meter_read_date') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('reading') ? ' has-error' : '' }}">
-                                <label for="reading" class="col-md-4 control-label">Reading</label>
+                            <div class="form-group{{ $errors->has('meter_reading') ? ' has-error' : '' }}">
+                                <label for="meter_reading" class="col-md-4 control-label">meter_reading</label>
 
                                 <div class="col-md-6">
-                                    <input id="reading" type="number" class="form-control" name="reading"
-                                           value="{{ old('reading') }}" required autofocus>
+                                    <input id="meter_reading" type="number" class="form-control" name="meter_reading"
+                                           value="{{ old('meter_reading') }}" required autofocus>
 
-                                    @if ($errors->has('reading'))
+                                    @if ($errors->has('meter_reading'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('reading') }}</strong>
+                                        <strong>{{ $errors->first('meter_reading') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -63,16 +63,16 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('deadline') ? ' has-error' : '' }}">
-                                <label for="deadline" class="col-md-4 control-label">Deadline to pay bill</label>
+                            <div class="form-group{{ $errors->has('bill_deadline') ? ' has-error' : '' }}">
+                                <label for="bill_deadline" class="col-md-4 control-label">Deadline to pay bill</label>
 
                                 <div class="col-md-6">
-                                    <input id="deadline" type="date" class="form-control" name="deadline"
-                                           value="{{ old('deadline') }}" required autofocus>
+                                    <input id="bill_deadline" type="date" class="form-control" name="bill_deadline"
+                                           value="{{ old('bill_deadline') }}" required autofocus>
 
-                                    @if ($errors->has('deadline'))
+                                    @if ($errors->has('bill_deadline'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('deadline') }}</strong>
+                                        <strong>{{ $errors->first('bill_deadline') }}</strong>
                                     </span>
                                     @endif
                                 </div>

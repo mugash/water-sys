@@ -9,7 +9,7 @@ class Payment extends Model
     /*
      * mass assignable fields
      * */
-    protected $fillable = ['billing_id', 'date', 'amount', 'type'];
+    protected $fillable = ['billing_id', 'payment_date', 'payment_amount', 'payment_type'];
     /*
      * Get the Bill for payment
      * */

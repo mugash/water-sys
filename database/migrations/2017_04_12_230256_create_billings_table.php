@@ -16,10 +16,10 @@ class CreateBillingsTable extends Migration
         Schema::create('billings', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('meter_reading_id');
-            $table->string('number')->unique();
-            $table->decimal('amount');
-            $table->date('deadline');
-            $table->decimal('balance')->default(0);
+            $table->string('bill_number')->unique();
+            $table->decimal('bill_amount');
+            $table->date('bill_deadline');
+            $table->decimal('bill_balance')->default(0);
             $table->timestamps();
         });
     }
