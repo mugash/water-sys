@@ -19,6 +19,7 @@
                                 <th>Plot Number</th>
                                 <th>clients_address</th>
                                 <th>Meter Number</th>
+                                <th colspan="2">Actions</th>
                             </tr>
                             @foreach($clients as $client)
                             <tr>
@@ -29,6 +30,8 @@
                                     <td>{{ $client->clients_plot_number }}</td>
                                     <td>{{ $client->clients_address }}</td>
                                     <td>{{ $client->clients_meter_number }}</td>
+                                <td><a href="{{ route('edit', ['$client' => $client->id]) }}"> edit client</a></td>
+                                <td><a href="{{ route('destroy',['$client' => $client->id]) }}">delete client</a> </td>
                             </tr>
                             @endforeach
                         </table>
