@@ -27,7 +27,7 @@ class ClientsController extends Controller
         $clients = Client::where('active', 1)
             ->orderBy('id', 'desc')
             ->get();
-        return view('clients.index', ['clients' => $clients, 'title' => 'List Clients']);
+        return view('clients.index', ['clients' => $clients, 'title' => 'List Clients','index'=>0]);
     }
 
     /**

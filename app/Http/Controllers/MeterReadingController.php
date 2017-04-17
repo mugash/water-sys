@@ -6,6 +6,7 @@ use App\Billing;
 use App\Client;
 use App\MeterReading;
 use Illuminate\Http\Request;
+use App\Setting;
 
 class MeterReadingController extends Controller
 {
@@ -51,7 +52,7 @@ class MeterReadingController extends Controller
     public function index()
     {
         $meter_readings = MeterReading::all();
-        return view('meteter_readings.index', ['meter_readings' => $meter_readings]);
+        return view('meteter_readings.index', ['meter_readings' => $meter_readings,'index' => 0]);
     }
 
     /**
@@ -107,7 +108,6 @@ class MeterReadingController extends Controller
                 'client_id' => 'required',
                 'meter_read_date' => 'required',
                 'meter_reading' => 'required|numeric',
-                'price' => 'required|numeric',
                 'bill_deadline' => 'required'
             ]);
             $meter_reading = MeterReading::create([
@@ -116,7 +116,7 @@ class MeterReadingController extends Controller
                 'meter_reading' => $request['meter_reading']
             ]);
             $bill_number = $this->random_num(10);
-            $bill_amount = $request['price'] * $meter_reading->meter_reading;
+            $bill_amount = Setting::find(1)->price_per_unit * $meter_reading->meter_reading;
             $billing = Billing::create([
                 'meter_reading_id' => $meter_reading->id,
                 'bill_number' => $bill_number,

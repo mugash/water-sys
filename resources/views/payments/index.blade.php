@@ -49,8 +49,8 @@
                             </tr>
                             @foreach($payments as $payment)
                                 <tr>
-                                    <td><a href="{{ route('payment', ['payment' => $payment->id]) }}"> {{ $payment->id }}</a></td>
-                                    <td>{{$payment->billing->bill_number}}</td>
+                                    <td><a href="{{ route('payment', ['payment' => $payment->id]) }}"> {{ ++$index }}</a></td>
+                                    <td><a href="{{ route('bill', ['bill' => $payment->billing->id]) }}"> {{$payment->billing->bill_number}}</a></td>
                                     <td>Ksh. {{ $payment->payment_amount }}</td>
                                     <td>{{$payment->payment_date}}</td>
                                     <td>{{ $payment->payment_type }}</td>

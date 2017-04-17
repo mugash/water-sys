@@ -52,8 +52,8 @@
                             </tr>
                             @foreach($bills as $bill)
                                 <tr>
-                                    <td><a href="{{ route('bill', ['bill' => $bill->id]) }}"> {{ $bill->id }}</a></td>
-                                    <td>{{$bill->meter_reading->client->clients_first_name }} {{ $bill->meter_reading->client->clients_last_name }}</td>
+                                    <td><a href="{{ route('bill', ['bill' => $bill->id]) }}"> {{ ++$index }}</a></td>
+                                    <td><a href="{{ route('client-detail', ['client'=>$bill->meter_reading->client->id]) }}"> {{$bill->meter_reading->client->clients_first_name }} {{ $bill->meter_reading->client->clients_last_name }}</a></td>
                                     <td>{{ $bill->meter_reading->client->clients_meter_number }}</td>
                                     <td>{{$bill->meter_reading->meter_reading}} units</td>
                                     <td>{{ $bill->bill_number }}</td>

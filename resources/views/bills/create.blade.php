@@ -20,20 +20,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
-                                <label for="price" class="col-md-4 control-label">Price Per Unit</label>
-
-                                <div class="col-md-6">
-                                    <input id="price" type="number" class="form-control" name="price"
-                                           value="{{ old('price') }}" required autofocus>
-
-                                    @if ($errors->has('price'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('price') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
                             <div class="form-group{{ $errors->has('bill_deadline') ? ' has-error' : '' }}">
                                 <label for="bill_deadline" class="col-md-4 control-label">Deadline to pay bill</label>
 

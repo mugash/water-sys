@@ -42,11 +42,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        &nbsp;@if(!Auth::guest())
                         <li><a href="{{ route('clients') }}">Clients</a></li>
                         <li><a href="{{ route('meter_reading_list') }}">Meter Readings</a></li>
                         <li><a href="{{ route('bills') }}">Bills</a></li>
                         <li><a href="{{ route('payments') }}">Payments</a></li>
+                        @if(Auth::user()->users_user_type == 'admin')
+                        <li><a href="{{ route('settings') }}">System Settings</a>
+                        @endif
+                        @endif
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

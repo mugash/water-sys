@@ -24,7 +24,7 @@ class PaymentController extends Controller
     public function index()
     {
         $payments = Payment::orderBy('payment_date')->get();
-        return view('payments.index', ['payments' => $payments]);
+        return view('payments.index', ['payments' => $payments,'index' => 0]);
     }
 
     /**

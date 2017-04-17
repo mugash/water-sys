@@ -48,8 +48,8 @@
                             </tr>
                             @foreach($meter_readings as $reading)
                                 <tr>
-                                    <td><a href="{{ route('meter_reading', ['reading' => $reading->id]) }}"> {{$reading->id}}</a></td>
-                                    <td><a href="{{ route('client-detail', ['client' => $reading->client->id]) }}">{{$reading->client->first_name}} {{$reading->client->last_name}}</a></td>
+                                    <td><a href="{{ route('meter_reading', ['reading' => $reading->id]) }}"> {{++$index}}</a></td>
+                                    <td><a href="{{ route('client-detail', ['client' => $reading->client->id]) }}">{{$reading->client->clients_first_name}} {{$reading->client->clients_last_name}}</a></td>
                                     <td>{{ $reading->client->clients_meter_number }}</td>
                                     <th>{{$reading->meter_read_date}}</th>
                                     <th>{{$reading->meter_reading}}</th>

@@ -9,6 +9,9 @@
 
                     <div class="panel-body">
                         Welcome to water system
+                        <p>
+                        Please Log In to start using the system
+                        </p>
                     </div>
                 </div>
             </div>

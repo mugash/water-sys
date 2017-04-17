@@ -75,8 +75,6 @@ Route::post('/payments/add', 'PaymentController@store')->name('payments_add_stor
 
 Route::get('/payments/{payment}', 'PaymentController@payment')->name('payment');
 
+Route::get('/settings', 'SettingController@update')->name('settings');
 
-
-
-
-
+Route::post('/settings', 'SettingController@store')->name('settings-store');
