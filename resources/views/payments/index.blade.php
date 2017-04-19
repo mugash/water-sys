@@ -10,7 +10,7 @@
 
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-3">
+                            <div class="col-md-6">
                                 <form class="form-horizontal" role="form" method="POST" action="{{ route('payments_add') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('meter_number') ? ' has-error' : '' }}">
@@ -36,6 +36,20 @@
                                         </div>
                                     </div>
                                     <form>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Import Payments From Database:</h3>
+                                <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
+                                    <a href="{{ url('bill-downloadExcel/xls') }}">
+                                        <button class="btn btn-success btn-sm">Download Excel xls</button>
+                                    </a>
+                                    <a href="{{ url('bill-downloadExcel/xlsx') }}">
+                                        <button class="btn btn-success btn-sm">Download Excel xlsx</button>
+                                    </a>
+                                    <a href="{{ url('bill-downloadExcel/csv') }}">
+                                        <button class="btn btn-success btn-sm">Download CSV</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <h1 class="text-center">Payments</h1>

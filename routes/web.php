@@ -78,3 +78,7 @@ Route::get('/payments/{payment}', 'PaymentController@payment')->name('payment');
 Route::get('/settings', 'SettingController@update')->name('settings');
 
 Route::post('/settings', 'SettingController@store')->name('settings-store');
+
+Route::get('downloadExcel/{type}', 'BillingController@downloadExcel')->name('excel');
+
+Route::get('bill-downloadExcel/{type}', 'PaymentController@downloadExcel')->name('excel-payment');

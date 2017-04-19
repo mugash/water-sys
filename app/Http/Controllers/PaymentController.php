@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Billing;
 use App\Payment;
 use Illuminate\Http\Request;
+use Excel;
+
 
 class PaymentController extends Controller
 {
@@ -121,6 +123,22 @@ class PaymentController extends Controller
             return redirect('/payment' . $payment->id);
         }
         return redirect('/payment' . $payment->id);
+    }
+    /**
+     *File to export Excel
+     *@param Request $request
+     * @param $type
+     *@return \Response
+     */
+    public function downloadExcel(Request $request,$type)
+    {
+        $data = Payment::get()->toArray();
+        return Excel::create('water_system_payments', function($excel) use ($data) {
+            $excel->sheet('billSheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
     }
 
 }

@@ -6,8 +6,9 @@ use App\Billing;
 use App\Client;
 use App\MeterReading;
 use App\Payment;
-use Illuminate\Http\Request;
 use App\Setting;
+use Illuminate\Http\Request;
+use Excel;
 
 class BillingController extends Controller
 {
@@ -55,7 +56,7 @@ class BillingController extends Controller
         $bills = Billing::where('bill_balance', '>', 0)
             ->orderBy('bill_balance')
             ->get();
-        return view('bills.index', ['bills' => $bills,'index' => 0]);
+        return view('bills.index', ['bills' => $bills, 'index' => 0]);
     }
 
     /**
@@ -156,6 +157,22 @@ class BillingController extends Controller
         $meter_reading = $request['meter_reading'];
         $client = Client::find($meter_reading);
         return view('meteter_readings.index');
+    }
+    /**
+    *File to export Excel
+     *@param Request $request
+     * @param $type
+     *@return \Response
+     */
+    public function downloadExcel(Request $request,$type)
+    {
+        $data = Billing::get()->toArray();
+        return Excel::create('water_bills', function($excel) use ($data) {
+            $excel->sheet('billSheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
     }
 }
 
