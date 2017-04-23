@@ -83,6 +83,6 @@ Route::get('downloadExcel/{type}', 'BillingController@downloadExcel')->name('exc
 
 Route::get('bill-downloadExcel/{type}', 'PaymentController@downloadExcel')->name('excel-payment');
 
-Route::get('clients-downloadExcel/{type}', 'ClientController@downloadExcel')->name('excel-clients');
+Route::get('clients-downloadExcel/{type}', 'ClientsController@downloadExcel')->name('excel-clients');
 
-Route::get('meter-readings-downloadExcel/{type}', 'ClientController@downloadExcel')->name('excel-clients');
+Route::get('meter-readings-downloadExcel/{type}', 'MeterReadingsController@downloadExcel')->name('excel-readings');
