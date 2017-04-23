@@ -9,13 +9,12 @@
                         <a href="{{ route('meter_reading_add') }}" class="pull-right">Record a Meter Reading</a> </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-3">
+                            <div class="col-md-6">
                                 <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_by_meter_by_form') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('meter_number') ? ' has-error' : '' }}">
-                                        <div class="row">
+                                        <label for="meter_number" class="col-md-4 control-label">Find readings by Meter number</label>
                                             <div class="col-md-6">
-                                            <label for="meter_number" class="col-md-4 control-label">Find readings by Meter number</label>
                                                 <input id="meter_number" type="number" class="form-control" name="meter_number"
                                                        value="{{ old('meter_number') }}" required autofocus>
 
@@ -25,7 +24,17 @@
                                     </span>
                                                 @endif
                                             </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Find Meter Readings
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <form>
+                            </div>
+                            <div class="col-md-6">
                                 <h3>Import Meter Readings From Database:</h3>
                                 <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
                                     <a href="{{ url('meter-readings-downloadExcel/xls') }}">
@@ -38,17 +47,6 @@
                                         <button class="btn btn-success btn-sm">Download CSV</button>
                                     </a>
                                 </div>
-                            </div>
-                            </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                Find Meter Readings
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <form>
                             </div>
                         </div>
                         <h1 class="text-center">Meter Readings with clients</h1>
