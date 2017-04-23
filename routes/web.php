@@ -82,3 +82,7 @@ Route::post('/settings', 'SettingController@store')->name('settings-store');
 Route::get('downloadExcel/{type}', 'BillingController@downloadExcel')->name('excel');
 
 Route::get('bill-downloadExcel/{type}', 'PaymentController@downloadExcel')->name('excel-payment');
+
+Route::get('clients-downloadExcel/{type}', 'ClientController@downloadExcel')->name('excel-clients');
+
+Route::get('meter-readings-downloadExcel/{type}', 'ClientController@downloadExcel')->name('excel-clients');

@@ -26,6 +26,20 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                <h3>Import Meter Readings From Database:</h3>
+                                <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
+                                    <a href="{{ url('meter-readings-downloadExcel/xls') }}">
+                                        <button class="btn btn-success btn-sm">Download Excel xls</button>
+                                    </a>
+                                    <a href="{{ url('meter-readings-downloadExcel/xlsx') }}">
+                                        <button class="btn btn-success btn-sm">Download Excel xlsx</button>
+                                    </a>
+                                    <a href="{{ url('meter-readings-downloadExcel/csv') }}">
+                                        <button class="btn btn-success btn-sm">Download CSV</button>
+                                    </a>
+                                </div>
+                            </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-6 col-md-offset-4">

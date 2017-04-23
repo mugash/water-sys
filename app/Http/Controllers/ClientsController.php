@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Excel;
 
 class ClientsController extends Controller
 {
@@ -136,5 +137,21 @@ class ClientsController extends Controller
         $selected_client->save();
         flash('Client Deleted!');
         return redirect('clients');
+    }
+        /**
+     *File to export Excel
+     *@param Request $request
+     * @param $type
+     *@return \Response
+     */
+    public function downloadExcel(Request $request,$type)
+    {
+        $data = Client::get()->toArray();
+        return Excel::create('water_system_clients', function($excel) use ($data) {
+            $excel->sheet('ClientsSheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
     }
 }

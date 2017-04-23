@@ -10,6 +10,20 @@
 
                     <div class="panel-body">
                         <h1 class="text-center">Here are all the clients</h1>
+                        <div class="col-md-12 col-md-offset-6">
+                                <h3>Import Clients From Database:</h3>
+                                <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
+                                    <a href="{{ url('clients-downloadExcel/xls') }}">
+                                        <button class="btn btn-success btn-sm">Download Excel xls</button>
+                                    </a>
+                                    <a href="{{ url('clients-downloadExcel/xlsx') }}">
+                                        <button class="btn btn-success btn-sm">Download Excel xlsx</button>
+                                    </a>
+                                    <a href="{{ url('clients-downloadExcel/csv') }}">
+                                        <button class="btn btn-success btn-sm">Download CSV</button>
+                                    </a>
+                                </div>
+                            </div>
                         <table class="table table-condensed">
                             <tr>
                                 <th>#</th>

@@ -7,6 +7,7 @@ use App\Client;
 use App\MeterReading;
 use Illuminate\Http\Request;
 use App\Setting;
+use Excel;
 
 class MeterReadingController extends Controller
 {
@@ -195,4 +196,21 @@ class MeterReadingController extends Controller
         $readings =  Client::where('meter_number', $meter_reading)->get()->meter_readings;
         return view('meteter_readings.index', ['meter_readings' => $readings]);
     }
+    /**
+     *File to export Excel
+     *@param Request $request
+     * @param $type
+     *@return \Response
+     */
+    public function downloadExcel(Request $request,$type)
+    {
+        $data = MeterReading::get()->toArray();
+        return Excel::create('water_system_meter_readings', function($excel) use ($data) {
+            $excel->sheet('MeterReadingsSheet', function($sheet) use ($data)
+            {
+                $sheet->fromArray($data);
+            });
+        })->download($type);
+    }
+}
 }

@@ -134,7 +134,7 @@ class PaymentController extends Controller
     {
         $data = Payment::get()->toArray();
         return Excel::create('water_system_payments', function($excel) use ($data) {
-            $excel->sheet('billSheet', function($sheet) use ($data)
+            $excel->sheet('PaymentsSheet', function($sheet) use ($data)
             {
                 $sheet->fromArray($data);
             });
