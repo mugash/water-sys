@@ -213,4 +213,3 @@ class MeterReadingController extends Controller
         })->download($type);
     }
 }
-}
