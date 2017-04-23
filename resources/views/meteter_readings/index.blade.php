@@ -13,9 +13,9 @@
                                 <form class="form-horizontal" role="form" method="POST" action="{{ route('meter_reading_by_meter_by_form') }}">
                                     {{ csrf_field() }}
                                     <div class="form-group{{ $errors->has('meter_number') ? ' has-error' : '' }}">
-                                        <label for="meter_number" class="col-md-4 control-label">Find readings by Meter number</label>
-                                        <div class="col-md-6">
+                                        <div class="row">
                                             <div class="col-md-6">
+                                            <label for="meter_number" class="col-md-4 control-label">Find readings by Meter number</label>
                                                 <input id="meter_number" type="number" class="form-control" name="meter_number"
                                                        value="{{ old('meter_number') }}" required autofocus>
 
@@ -25,7 +25,6 @@
                                     </span>
                                                 @endif
                                             </div>
-                                        </div>
                                         <div class="col-md-6">
                                 <h3>Import Meter Readings From Database:</h3>
                                 <div style="border: 4px solid #a1a1a1;margin-top: 15px;padding: 20px;">
@@ -39,6 +38,7 @@
                                         <button class="btn btn-success btn-sm">Download CSV</button>
                                     </a>
                                 </div>
+                            </div>
                             </div>
                                     </div>
                                     <div class="form-group">
